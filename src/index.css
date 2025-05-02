@@ -1,0 +1,50 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --neon-glow: 0 0 10px rgba(56, 178, 172, 0.5),
+                 0 0 20px rgba(56, 178, 172, 0.3),
+                 0 0 30px rgba(56, 178, 172, 0.1);
+  }
+  
+  body {
+    @apply bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-gray-100;
+    background-attachment: fixed;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-white/10 backdrop-blur-lg border border-white/20;
+  }
+  
+  .glass-effect {
+    @apply bg-gradient-to-br from-white/10 to-white/5 backdrop-blur-md;
+  }
+  
+  .neon-border {
+    box-shadow: var(--neon-glow);
+  }
+  
+  .hover-lift {
+    @apply transition-all duration-300 ease-out hover:translate-y-[-4px] hover:shadow-lg;
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
